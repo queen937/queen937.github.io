@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Queen 轨道交通机电 - 公司简介与组织架构</title>
+  <style>
+	* {
+	  margin: 0;
+	  padding: 0;
+	  box-sizing: border-box;
+	}
+	body {
+	  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+	  background: #f0f2f5;
+	  color: #333;
+	  line-height: 1.7;
+	}
+	.container {
+	  max-width: 1000px;
+	  margin: 40px auto;
+	  padding: 0 20px;
+	}
+	.card {
+	  background: #fff;
+	  padding: 50px;
+	  border-radius: 12px;
+	  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+	  margin-bottom: 30px;
+	}
+	.title {
+	  font-size: 34px;
+	  font-weight: 700;
+	  margin-bottom: 8px;
+	  color: #1f2937;
+	  text-align: center;
+	  letter-spacing: 1px;
+	}
+	.subtitle {
+	  text-align: center;
+	  color: #6b7280;
+	  margin-bottom: 50px;
+	  font-size: 16px;
+	}
+	h2 {
+	  font-size: 22px;
+	  margin: 35px 0 15px;
+	  color: #1f2937;
+	  border-left: 4px solid #2563eb;
+	  padding-left: 12px;
+	}
+	p {
+	  margin-bottom: 16px;
+	  font-size: 16px;
+	  color: #4b5563;
+	}
+
+	/* --- 组织架构图样式 --- */
+	.org-chart {
+	  margin-top: 40px;
+	  text-align: center;
+	  overflow-x: auto; /* 手机端横向滚动 */
+	  padding-bottom: 20px;
+	}
+	.org-node {
+	  display: inline-block;
+	  min-width: 180px;
+	  margin: 0 15px;
+	  vertical-align: top;
+	}
+	.org-box {
+	  background: #2563eb;
+	  color: white;
+	  padding: 12px 20px;
+	  border-radius: 8px;
+	  font-weight: 600;
+	  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	}
+	.org-box-sub {
+	  background: #60a5fa;
+	  color: white;
+	  padding: 10px 18px;
+	  border-radius: 6px;
+	  font-weight: 500;
+	  margin-top: 10px;
+	  font-size: 14px;
+	}
+	.org-children {
+	  margin-top: 20px;
+	  position: relative;
+	}
+	.org-children::before {
+	  content: '';
+	  position: absolute;
+	  top: -10px;
+	  left: 50%;
+	  transform: translateX(-50%);
+	  width: 2px;
+	  height: 10px;
+	  background: #2563eb;
+	}
+	.org-children > .org-node {
+	  margin: 0 10px;
+	}
+
+	.footer {
+	  text-align: center;
+	  margin-top: 50px;
+	  color: #9ca3af;
+	  font-size: 14px;
+	}
+  </style>
+</head>
+<body>
+  <div class="container">
+	<div class="card">
+	  <h1 class="title">Queen 轨道交通机电</h1>
+	  <p class="subtitle">专业 · 创新 · 品质 · 服务</p>
+
+	  <h2>公司概况</h2>
+	  <p>Queen 轨道交通机电是一家专注于城市轨道交通机电设备系统集成、技术研发与运维服务的高新技术企业。公司深耕轨道交通领域，致力于为地铁、市域铁路等项目提供安全、高效、智能的机电一体化解决方案。</p>
+
+	  <h2>企业理念</h2>
+	  <p>公司秉承“匠心机电，智控轨道”的核心价值观，以保障轨道交通运营安全为己任，通过持续的技术创新与管理优化，为客户提供全生命周期的技术支持与服务。</p>
+
+	  <h2>核心业务</h2>
+	  <p>业务范围涵盖轨道交通环控系统、供电系统、机电设备安装、调试及运维保养等。凭借专业的技术团队和丰富的工程经验，公司在行业内树立了良好的品牌形象。</p>
+
+	  <!-- ************************* -->
+	  <!-- *** 组织架构图板块 *** -->
+	  <!-- ************************* -->
+	  <h2>组织架构</h2>
+	  <p>公司采用职能式与项目式相结合的管理架构，确保决策高效与执行有力，全面支撑轨道交通业务的发展。</p>
+
+	  <div class="org-chart">
+		<!-- 第一层：董事长/总经理 -->
+		<div class="org-node">
+		  <div class="org-box">董事长 / 总经理</div>
+		  
+		  <!-- 第二层：各中心 -->
+		  <div class="org-children">
+			<div class="org-node">
+			  <div class="org-box-sub">综合管理中心</div>
+			  <div class="org-box-sub">行政/人力/法务</div>
+			</div>
+			<div class="org-node">
+			  <div class="org-box-sub">财务中心</div>
+			  <div class="org-box-sub">预算/核算/资金</div>
+			</div>
+			<div class="org-node">
+			  <div class="org-box-sub">技术研发中心</div>
+			  <div class="org-box-sub">PLC/自动化/算法</div>
+			</div>
+			<div class="org-node">
+			  <div class="org-box-sub">工程事业部</div>
+			  <div class="org-box-sub">项目管理/施工</div>
+			</div>
+			<div class="org-node">
+			  <div class="org-box-sub">运维服务部</div>
+			  <div class="org-box-sub">设备维保/技术支持</div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+	</div>
+	
+	<div class="footer">© 2025 Queen 轨道交通机电 All Rights Reserved</div>
+  </div>
+</body>
+</html>
