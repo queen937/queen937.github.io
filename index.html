@@ -5,75 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Queen轨道交通</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: "Microsoft YaHei", sans-serif; background: #f4f6f8; color: #333; line-height: 1.7; }
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        .card { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .header { text-align: center; margin-bottom: 30px; position: relative; }
-        .logo { width: 100px; height: 100px; border-radius: 50%; margin-bottom: 10px; object-fit: cover; }
-        .title { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
-        .subtitle { color: #666; font-size: 16px; }
-        .tool-bar { position: absolute; top: 0; right: 0; display: flex; gap: 8px; }
-        .lang-btn { padding: 6px 10px; background: #0066cc; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
-        .nav-buttons { display: flex; justify-content: center; gap: 15px; margin: 30px 0; flex-wrap: wrap; }
-        .nav-btn { padding: 12px 24px; background: #0066cc; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: 500; }
-        .nav-btn.active { background: #004d99; }
-        section { margin-bottom: 40px; }
-        h2 { font-size: 22px; margin: 30px 0 15px; border-left: 4px solid #0066cc; padding-left: 12px; }
-        p { margin-bottom: 16px; color: #444; }
-        .org { margin: 30px 0; text-align: center; }
-        .level { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
-        .box { background: #0066cc; color: #fff; padding: 12px 16px; border-radius: 8px; min-width: 140px; }
-        .box2 { background: #3399ff; color: #fff; padding: 10px 12px; border-radius: 6px; min-width: 130px; font-size: 14px; }
-        .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
-        .product-item { background: #e8f4ff; padding: 20px; border-radius: 8px; text-align: center; }
-        .team-member { display: flex; align-items: center; gap: 15px; margin-bottom: 12px; padding: 12px; background: #f8f9fa; border-radius: 8px; }
-        .team-member strong { color: #0066cc; min-width: 120px; }
-        .footer { text-align: center; color: #666; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; }
-        [data-lang] { display: none; }
-        [data-lang].show { display: block; }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:"Microsoft YaHei",sans-serif;background:#f4f6f8;color:#333;line-height:1.7}
+        .container{max-width:900px;margin:40px auto;padding:0 20px}
+        .card{background:#fff;padding:40px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.05)}
+        .title{font-size:30px;font-weight:700;text-align:center;margin-bottom:10px;color:#222}
+        .subtitle{text-align:center;color:#666;margin-bottom:40px;font-size:16px}
+        h2{font-size:20px;margin:30px 0 15px;color:#222;border-left:4px solid #0066cc;padding-left:12px}
+        p{margin-bottom:16px;font-size:16px;color:#444}
+        .org{margin:30px 0;text-align:center}
+        .level{display:flex;justify-content:center;gap:12px;margin-top:20px;flex-wrap:wrap}
+        .box{background:#0066cc;color:#fff;padding:12px 16px;border-radius:8px;font-weight:500;min-width:140px}
+        .box2{background:#3399ff;color:#fff;padding:10px 12px;border-radius:6px;font-size:14px;min-width:130px}
     </style>
 </head>
 <body>
 <div class="container">
-    <div class="card">
-        <div class="header">
-            <div class="tool-bar">
-                <button class="lang-btn" id="langBtn">English</button>
-            </div>
-            < img src="https://cdn-icons-png.flaticon.com/512/3072/3072730.png" alt="Logo" class="logo">
-            <h1 class="title" data-lang="zh">Queen轨道交通机电有限公司</h1>
-            <h1 class="title" data-lang="en">Queen Rail Transit Co., Ltd.</h1>
-            <p class="subtitle" data-lang="zh">让轨道更智能，让出行更可靠</p >
-            <p class="subtitle" data-lang="en">Smarter Rail, Better Journey</p >
+<div class="card">
+    <h1 class="title">Queen轨道交通机电有限公司</h1>
+    <p class="subtitle">专业轨道交通机电设备集成、安装、调试与运维</p >
+
+    <h2>公司简介</h2>
+    <p>Queen轨道交通机电有限公司专注于城市轨道交通领域，提供机电系统集成、设备安装、调试、维保及技术服务。公司拥有专业技术团队与成熟项目管理体系，服务覆盖全国多地地铁、轻轨及市域铁路项目。</p >
+
+    <h2>核心业务</h2>
+    <p>轨道交通环控系统、供电系统、给排水系统、屏蔽门系统、机电设备安装调试、运营维护、智能化改造等一体化解决方案。</p >
+
+    <h2>企业理念</h2>
+    <p>安全为先、质量为本、诚信负责、合作共赢，为城市轨道交通提供稳定可靠的机电系统保障。</p >
+
+    <h2>组织架构</h2>
+    <div class="org">
+        <div class="box">总经理</div>
+        <div class="level">
+            <div class="box2">综合管理部<br>行政/人事/后勤</div>
+            <div class="box2">财务部<br>资金/成本/审计</div>
+            <div class="box2">技术部<br>研发/方案/设计</div>
+            <div class="box2">工程部<br>施工/安装/调试</div>
+            <div class="box2">运维部<br>维保/售后/支持</div>
         </div>
+    </div>
 
-        <div class="nav-buttons">
-            <button class="nav-btn active" data-target="about" data-lang-zh="公司简介" data-lang-en="About Us"></button>
-            <button class="nav-btn" data-target="org" data-lang-zh="组织架构" data-lang-en="Organization"></button>
-            <button class="nav-btn" data-target="products" data-lang-zh="核心业务" data-lang-en="Business"></button>
-            <button class="nav-btn" data-target="team" data-lang-zh="小组分工" data-lang-en="Team"></button>
-        </div>
-
-        <section id="about">
-            <h2 data-lang="zh">公司简介</h2>
-            <h2 data-lang="en">About Us</h2>
-            <p data-lang="zh">Queen轨道交通机电有限公司专注于城市轨道交通领域，提供机电系统集成、设备安装调试、运维维保及智能化改造一体化解决方案。</p >
-            <p data-lang="en">Queen focuses on urban rail transit, providing integrated solutions for electromechanical systems, installation, commissioning, maintenance and intelligent upgrading.</p >
-        </section>
-
-        <section id="org" style="display:none;">
-            <h2 data-lang="zh">组织架构</h2>
-            <h2 data-lang="en">Organization</h2>
-            <div class="org">
-                <div class="box" data-lang="zh">总经理</div>
-                <div class="box" data-lang="en">General Manager</div>
-                <div class="level">
-                    <div class="box2">综合管理部<br><span data-lang="en">Admin</span></div>
-                    <div class="box2">财务部<br><span data-lang="en">Finance</span></div>
-                    <div class="box2">技术部<br><span data-lang="en">Tech</span></div>
-                    <div class="box2">工程部<br><span data-lang="en">Engineering</span></div>
-                    <div class="box2">运维部<br><span data-lang="en">Maintenance</span></div>
-                </div>
-            </div>
-      
+    <h2>合作方式</h2>
+    <p>欢迎各地轨道交通建设单位、设计院、总包单位与我司开展项目合作、技术合作、劳务合作、设备供应及长期运维服务。可提供专业方案、施工团队与完整售后服务。</p >
+</div>
+</div>
+</body>
+</html>
