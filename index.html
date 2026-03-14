@@ -6,35 +6,67 @@
     <title>Queen轨道交通 - 关于我们</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-color: #f4f6f8;
+            --card-bg: #fff;
+            --text-color: #333;
+            --text-light: #666;
+            --primary: #0066cc;
+            --primary-dark: #004d99;
+            --secondary: #3399ff;
+            --shadow: rgba(0,0,0,0.05);
+        }
+        .dark-mode {
+            --bg-color: #1a1a2e;
+            --card-bg: #16213e;
+            --text-color: #eaeaea;
+            --text-light: #aaa;
+            --primary: #00a8e8;
+            --primary-dark: #0077b6;
+            --secondary: #00b4d8;
+            --shadow: rgba(0,0,0,0.3);
+        }
         body { 
             font-family: "Microsoft YaHei", sans-serif; 
-            background: #f4f6f8; 
-            color: #333; 
+            background: var(--bg-color); 
+            color: var(--text-color); 
             line-height: 1.7;
+            transition: background 0.3s ease, color 0.3s ease;
         }
         .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
         .card { 
-            background: #fff; 
+            background: var(--card-bg); 
             padding: 40px; 
             border-radius: 12px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: background 0.3s ease;
         }
 
         /* 头部样式 */
-        .header { text-align: center; margin-bottom: 30px; }
+        .header { text-align: center; margin-bottom: 30px; position: relative; }
         .logo { 
             width: 100px; 
             height: 100px; 
             border-radius: 50%; 
             margin-bottom: 10px;
             object-fit: cover;
-            /* 图片加载动画 */
             animation: fadeIn 2s ease;
         }
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
-
-        .title { font-size: 32px; font-weight: 700; color: #222; margin-bottom: 8px; }
-        .subtitle { color: #666; font-size: 16px; }
+        .title { font-size: 32px; font-weight: 700; color: var(--text-color); margin-bottom: 8px; }
+        .subtitle { color: var(--text-light); font-size: 16px; }
+        .theme-toggle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 8px 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
 
         /* 导航按钮（互动部分） */
         .nav-buttons { 
@@ -46,7 +78,7 @@
         }
         .nav-btn {
             padding: 12px 24px;
-            background: #0066cc;
+            background: var(--primary);
             color: white;
             border: none;
             border-radius: 8px;
@@ -55,104 +87,72 @@
             transition: all 0.3s ease;
         }
         .nav-btn:hover {
-            background: #004d99;
+            background: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px var(--shadow);
         }
-        .nav-btn.active { background: #004d99; }
+        .nav-btn.active { background: var(--primary-dark); }
 
         /* 内容区块 */
         section { display: none; margin-bottom: 40px; }
         section.active { display: block; animation: slideIn 0.5s ease; }
         @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
         h2 { 
             font-size: 22px; 
             margin: 30px 0 15px; 
-            color: #222; 
-            border-left: 4px solid #0066cc; 
+            color: var(--text-color); 
+            border-left: 4px solid var(--primary); 
             padding-left: 12px;
         }
-        p { margin-bottom: 16px; font-size: 16px; color: #444; }
+        p { margin-bottom: 16px; font-size: 16px; color: var(--text-light); }
 
-        /* 组织架构 */
-        .org { margin: 30px 0; text-align: center; }
-        .level { 
-            display: flex; 
-            justify-content: center; 
-            gap: 12px; 
-            margin-top: 20px; 
-            flex-wrap: wrap;
+        /* 轮播图 */
+        .carousel {
+            position: relative;
+            height: 250px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 20px 0;
         }
-        .box { 
-            background: #0066cc; 
-            color: #fff; 
-            padding: 12px 16px; 
-            border-radius: 8px; 
-            font-weight: 500; 
-            min-width: 140px;
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
         }
-        .box2 { 
-            background: #3399ff; 
-            color: #fff; 
-            padding: 10px 12px; 
-            border-radius: 6px; 
-            font-size: 14px; 
-            min-width: 130px;
+        .carousel-slide.active { opacity: 1; }
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-
-        /* 产品卡片 */
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .product-item {
-            background: #e8f4ff;
-            padding: 20px;
-            border-radius: 8px;
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 10px;
             text-align: center;
-            transition: transform 0.3s ease;
+        }
+        .carousel-prev, .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
             cursor: pointer;
+            font-size: 18px;
         }
-        .product-item:hover {
-            transform: scale(1.05);
-            background: #d1e7ff;
-        }
+        .carousel-prev { left: 10px; }
+        .carousel-next { right: 10px; }
 
-        /* 团队分工 */
-        .team { margin-top: 30px; }
-        .team-member {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 12px;
-            padding: 12px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            transition: background 0.3s ease;
-        }
-        .team-member:hover { background: #e9ecef; }
-        .team-member strong { color: #0066cc; min-width: 120px; }
-
-        /* 页脚 */
-        .footer { text-align: center; color: #666; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="card">
-            <div class="header">
-                <!-- 稳定的Logo图片 -->
-                < img src="https://cdn-icons-png.flaticon.com/512/3072/3072730.png" alt="Queen轨道交通Logo" class="logo">
-                <h1 class="title">Queen轨道交通机电有限公司</h1>
-                <p class="subtitle">让轨道更智能，让出行更可靠</p >
-            </div>
-
-            <!-- 导航按钮（互动核心） -->
-            <div class="nav-buttons">
-                <button class="nav-btn active" data-target="about">公司简介</button>
-                <button class="nav-btn" data-target="org">组织架构</button>
-                <button class="nav-btn" data-target="products">核心业务</button>
-     
+        /* 数据统计 */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150p
